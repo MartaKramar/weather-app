@@ -1,0 +1,102 @@
+h1 {
+    color: blue;
+}
+
+header {
+    margin: 50px;
+}
+
+main {
+    background-image: url("/media/blue-sky.jpg");
+    background-size: 100%;
+    border-radius: 30px;
+    margin: 20px;
+    padding: 50px 10px;
+    color: rgb(255, 255, 255);
+}
+
+footer {
+    text-align: center;
+    color: rgba(1, 156, 218, 0.884);
+}
+
+.city-info {
+    column-gap: 2%;
+    margin: 10px;
+    width: 100%;
+}
+
+.current-weather {
+    column-gap: 2%;
+    margin: 10px;
+    width: 100%;
+}
+
+.forecast {
+    column-gap: 2%;
+    margin: 10px;
+    width: 100%;
+}
+
+.day {
+    background-color: white;
+    background-size: 100%;
+    border-radius: 13px;
+    color: skyblue;
+    text-align: center;
+    padding: 15px 0px;
+}
+
+.weather-indicator {
+    background-color: white;
+    background-size: 100%;
+    border-radius: 13px;
+    color: skyblue;
+    text-align: center;
+    width: 100%;
+}
+
+.city-info-item {
+    background-color: white;
+    background-size: 100%;
+    border-radius: 13px;
+    color: salmon;
+    text-align: center;
+    font-weight: bold;
+}
+
+.city-name {
+    font-size: 50px;
+    font-family: "Satisfy", cursive;
+}
+
+.date-time {
+    font-size: 20px;
+}
+
+.text-about-weather {
+    font-family: "Courgette", cursive;
+    font-size: 25px;
+    color: salmon;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    background-color: skyblue;
+    border: grey;
+}
+
+.current-weather i {
+    font-size: 28px;
+    padding-top: 10px;
+}
+
+.temperature {
+    font-size: 28px;
+    padding-top: 4px;
+}
+
+.week-day {
+    color: salmon;
+    font-weight: bold;
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Parcel Sandbox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courgette&family=Josefin+Sans:ital@1&family=Satisfy&display=swap"
+        rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <link href="src/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+
+    <script src="https://kit.fontawesome.com/22f4fbff7d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <form id="search-form">
+                        <div class="input-group mb-3">
+                            <input id="search-input" type="text" class="form-control search-field"
+                                placeholder="Enter your city here" aria-label="Recipient's username"
+                                aria-describedby="basic-addon2" value="" />
+                            <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"
+                                    id="basic-addon3"></i></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-secondary" id="current-location">
+                        Current location <i class="fa-solid fa-house-chimney-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- main container start -->
+        <div class="container">
+            <div class="row city-info">
+                <div class="col"></div>
+                <div class="col city-info-item city-name" id="city-name"></div>
+                <div class="col city-info-item date-time">
+                    <div id="date"></div>
+                    <div id="week-day"></div>
+                    <div id="time"></div>
+                </div>
+            </div>
+
+            <div class="row current-weather">
+                <div class="col weather-indicator temperature">
+                    <span id="degree"></span><span id="celsius"> °C</span> |
+                    <span id="farenheit">°F</span>
+                </div>
+                <div class="col weather-indicator">
+                    <i class="fa-solid fa-sun"></i>
+                </div>
+                <div class="col weather-indicator">
+                    Precipitation:
+                    <br /><span id="hummid"></span>%
+                </div>
+                <div class="col weather-indicator">
+                    Wind:
+                    <br />
+                    <span id="wind"></span> km/h
+                </div>
+            </div>
+            <!-- forecast row start -->
+            <div class="row forecast">
+                <div class="col day">
+                    <span class="week-day">Monday</span>
+                    <br />
+                    20.06.2022
+                    <br />
+                    <i class="fa-solid fa-cloud-rain"></i>
+                    <br />
+                    <div class="row">
+                        <div class="col-6">
+                            min.
+                        </div>
+                        <div class="col-6">
+                            max.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            18°C
+                        </div>
+                        <div class="col-6">
+                            20°C
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col day">
+                    <span class="week-day">Tuesday</span>
+                    <br />
+                    20.06.2022
+                    <br />
+                    <i class="fa-solid fa-cloud-rain"></i>
+                    <br />
+                    <div class="row">
+                        <div class="col-6">
+                            min.
+                        </div>
+                        <div class="col-6">
+                            max.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            18°C
+                        </div>
+                        <div class="col-6">
+                            20°C
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col day">
+                    <span class="week-day">Wednesday</span>
+                    <br />
+                    20.06.2022
+                    <br />
+                    <i class="fa-solid fa-cloud-rain"></i>
+                    <br />
+                    <div class="row">
+                        <div class="col-6">
+                            min.
+                        </div>
+                        <div class="col-6">
+                            max.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            18°C
+                        </div>
+                        <div class="col-6">
+                            20°C
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col day">
+                    <span class="week-day">Thursday</span>
+                    <br />
+                    20.06.2022
+                    <br />
+                    <i class="fa-solid fa-cloud-rain"></i>
+                    <br />
+                    <div class="row">
+                        <div class="col-6">
+                            min.
+                        </div>
+                        <div class="col-6">
+                            max.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            18°C
+                        </div>
+                        <div class="col-6">
+                            20°C
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col day">
+                    <span class="week-day">Friday</span>
+                    <br />
+                    20.06.2022
+                    <br />
+                    <i class="fa-solid fa-cloud-rain"></i>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-6">
+                            min.
+                        </div>
+                        <div class="col-6">
+                            max.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            18°C
+                        </div>
+                        <div class="col-6">
+                            20°C
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- forecast row end -->
+        </div>
+        <!-- main container end -->
+    </main>
+
+    <footer>
+        <br />
+        <br />
+        <p class="text-about-weather">
+            Wherever you go, no matter what the weather, always bring your own
+            sunshine.
+        </p>
+        <br />
+        <span class="author">Coded by Marta Kramar</span>
+    </footer>
+
+    <script src="src/index.js"></script>
+</body>
+
+</html>
