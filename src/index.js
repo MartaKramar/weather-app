@@ -26,6 +26,7 @@ let minute = now.getMinutes();
 let dateSelector = document.querySelector("#date");
 let weekDaySelector = document.querySelector("#week-day");
 let timeSelector = document.querySelector("#time");
+let defaultCity = "Kyiv";
 
 dateSelector.innerHTML = `${date}.${month}.${year}`;
 weekDaySelector.innerHTML = day;
@@ -76,6 +77,7 @@ function updateWeather(city) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(url).then(updateHtmlWeather);
 }
+updateWeather(defaultCity);
 
 function searchCity(event) {
   event.preventDefault();
