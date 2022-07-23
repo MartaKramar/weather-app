@@ -98,3 +98,14 @@ footer {
   color: salmon;
   font-weight: bold;
 }
+
+.my-st {
+  min-height: 100%;
+  font-size: 28px;
+  margin-bottom: 0;
+}
+
+#icon {
+filter: invert(80%)
+sepia(20%)
+}
