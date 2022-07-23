@@ -61,6 +61,10 @@ function updateHtmlWeatherWithCity(response) {
   
   let icon = document.querySelector("#icon");
   icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  icon.setAttribute("alt", response.data.weather[0].description);
+
+  let description = document.querySelector("#description");
+  description.innerHTML = response.data.weather[0].description;
   
 
 }
@@ -78,6 +82,10 @@ function updateHtmlWeather(response) {
 
   let icon = document.querySelector("#icon");
   icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  icon.setAttribute("alt", response.data.weather[0].description);
+
+  let description = document.querySelector("#description");
+  description.innerHTML = response.data.weather[0].description;
 }
 
 function updateWeather(city) {
