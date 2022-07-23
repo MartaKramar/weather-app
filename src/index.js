@@ -58,6 +58,11 @@ function updateHtmlWeatherWithCity(response) {
 
   let cityName = document.querySelector("#city-name");
   cityName.innerHTML = response.data.name;
+  
+  let icon = document.querySelector("#icon");
+  icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  
+
 }
 
 function updateHtmlWeather(response) {
@@ -70,6 +75,9 @@ function updateHtmlWeather(response) {
 
   let wind = document.querySelector("#wind");
   wind.innerHTML = response.data.wind.speed;
+
+  let icon = document.querySelector("#icon");
+  icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 function updateWeather(city) {
