@@ -105,7 +105,18 @@ footer {
   margin-bottom: 0;
 }
 
+.active {
+  color: salmon;
+}
+
 #icon {
-filter: invert(80%)
-sepia(20%)
+  filter: invert(15%) opacity(70%)
+}
+
+#celsius:hover {
+  cursor: pointer;
+}
+
+#farenheit:hover {
+  cursor: pointer;
 }
