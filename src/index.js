@@ -33,6 +33,51 @@ dateSelector.innerHTML = `${date}.${month}.${year}`;
 weekDaySelector.innerHTML = day;
 timeSelector.innerHTML = `${hour}.${minute}`;
 
+function displayForecast() {
+
+  
+  let forecastRow = document.querySelector("#forecast-row");
+let rowResult = "";
+
+let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+days.forEach(function(day){
+  let column = `
+   <div class="col day">
+                    <span class="week-day">${day}</span>
+                    <br />
+                    20.06.2022
+                    <br />
+                    <i class="fa-solid fa-cloud-rain"></i>
+                    <br />
+                    <div class="row">
+                        <div class="col-6">
+                            min.
+                        </div>
+                        <div class="col-6">
+                            max.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            18°C
+                        </div>
+                        <div class="col-6">
+                            20°C
+                        </div>
+                    </div>
+                </div>
+                `;
+rowResult = rowResult + column;
+
+});
+  
+  forecastRow.innerHTML = rowResult;
+  
+
+}
+
+displayForecast();
+
 function updateCurrentLocation() {
   navigator.geolocation.getCurrentPosition(updateWeatherForCurrentLoc);
 }
