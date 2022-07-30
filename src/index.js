@@ -19,9 +19,16 @@ let days = [
   "Saturday"
 ];
 let day = days[now.getDay()];
-let hour = now.getHours();
-let minute = now.getMinutes();
 
+let hour = now.getHours();
+if (hour < 10) {
+  hour = "0" + hour;
+}
+
+let minute = now.getMinutes();
+if (minute < 10) {
+  minute = "0" + minute;
+}
 let celsiusTemperature = null;
 
 let dateSelector = document.querySelector("#date");
@@ -34,42 +41,53 @@ dateSelector.innerHTML = `${date}.${month}.${year}`;
 weekDaySelector.innerHTML = day;
 timeSelector.innerHTML = `${hour}.${minute}`;
 
-function displayForecast(response) {
-console.log (response);
+function formatDay(timestemp) {
+  let date = new Date(timestemp * 1000);
   
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
+
+
+function displayForecast(response) {
+console.log(response);
+let forecastFromResponse = response.data.daily;
+
 let forecastRow = document.querySelector("#forecast-row");
 let rowResult = "";
 
-let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-days.forEach(function(day){
-  let column = `
-   <div class="col day">
-                    <span class="week-day">${day}</span>
-                    <br />
-                    20.06.2022
-                    <br />
-                    <i class="fa-solid fa-cloud-rain"></i>
-                    <br />
-                    <div class="row">
-                        <div class="col-6">
-                            min.
-                        </div>
-                        <div class="col-6">
-                            max.
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            18°C
-                        </div>
-                        <div class="col-6">
-                            20°C
-                        </div>
-                    </div>
-                </div>
-                `;
-rowResult = rowResult + column;
+forecastFromResponse.forEach(
+    function(day, index){
+ 
+      if(index > 0 && index < 7){
+  
+        let column = `
+         <div class="col day">
+              <span class="week-day">${formatDay(day.dt)}</span>
+              <br />
+                <img class="icons" src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="">
+              <br />
+              <div class="row">
+                  <div class="col-6">
+                      min.
+                  </div>
+                  <div class="col-6">
+                      max.
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-6">
+                      ${Math.round(day.temp.min)}°C
+                  </div>
+                  <div class="col-6">
+                      ${Math.round(day.temp.max)}°C
+                  </div>
+              </div>
+          </div>
+          `;
 
+          rowResult += column;
+  }
 });
   
 forecastRow.innerHTML = rowResult;

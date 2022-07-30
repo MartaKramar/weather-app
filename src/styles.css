@@ -109,9 +109,7 @@ footer {
   color: salmon;
 }
 
-#icon {
-  filter: invert(15%) opacity(70%)
-}
+
 
 #celsius:hover {
   cursor: pointer;
