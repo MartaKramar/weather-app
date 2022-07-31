@@ -52,6 +52,31 @@ function formatDay(timestemp) {
     return days[date.getDay()];
 }
 
+// switch C-F-C for current day
+
+function changeToCelsius(event) {
+    let degree = document.querySelector("#degree");
+    degree.innerHTML = celsiusTemperature;
+    
+    celsius.classList.add("active");
+    farenheit.classList.remove("active");
+}
+
+function changeToFarenheit(event) {
+    let degree = document.querySelector("#degree");
+    degree.innerHTML = Math.round(celsiusTemperature * 9 / 5 + 32);
+
+    celsius.classList.remove("active");
+    farenheit.classList.add("active");
+}
+
+let celsius = document.querySelector("#celsius");
+let farenheit = document.querySelector("#farenheit");
+celsius.addEventListener("click", changeToCelsius);
+farenheit.addEventListener("click", changeToFarenheit);
+
+//
+
 
 function displayForecast(response) {
     let forecastFromResponse = response.data.daily;
@@ -113,6 +138,9 @@ let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", updateCurrentLocation);
 
 function updateHtmlWeather(response) {
+    
+    celsius.classList.add("active");
+    farenheit.classList.remove("active");
 
     getForecast(response.data.coord);
     celsiusTemperature = Math.round(response.data.main.temp);
@@ -159,23 +187,3 @@ searchForm.addEventListener("submit", searchCity);
 
 let icon = document.querySelector("#basic-addon3");
 icon.addEventListener("click", searchCity);
-
-function changeToCelsius(event) {
-    let degree = document.querySelector("#degree");
-    degree.innerHTML = celsiusTemperature;
-    celsius.classList.add("active");
-    farenheit.classList.remove("active");
-}
-
-function changeToFarenheit(event) {
-    let degree = document.querySelector("#degree");
-    degree.innerHTML = Math.round(celsiusTemperature * 9 / 5 + 32);
-
-    celsius.classList.remove("active");
-    farenheit.classList.add("active");
-}
-
-let celsius = document.querySelector("#celsius");
-let farenheit = document.querySelector("#farenheit");
-celsius.addEventListener("click", changeToCelsius);
-farenheit.addEventListener("click", changeToFarenheit);
